@@ -1,0 +1,31 @@
+name:              access-constraint
+version:           0.0.0
+synopsis:          Generate constraints for use with the the access package
+description:       
+                   Contributions are most welcome.
+homepage:          https://github.com/circuithub/haskell-access-contraint
+bug-reports:       https://github.com/circuithub/haskell-access-contraint/issues
+license:           MIT
+license-file:      LICENSE
+author:            Rehno Lindeque <code@rehno.lindeque.name>
+maintainer:        Rehno Lindeque <code@rehno.lindeque.name>
+copyright:         2016 CircuitHub, Inc.
+cabal-version:     >= 1.10
+build-type:        Simple
+
+flag dev
+    description:   Turn on development settings
+    default:       False
+
+library
+    exposed-modules: Data.Access.Constraint
+
+    if flag(dev)
+        ghc-options:   -Wall -O0 -j
+    else
+        ghc-options:   -Wall -O2
+
+    default-language: Haskell2010
+
+    build-depends: base                          >= 4.7           && < 5,
+                   constraints                   >= 0.8
